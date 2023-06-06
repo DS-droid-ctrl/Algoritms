@@ -5,18 +5,18 @@ public class Homework02 {
   public static void main(String[] args) {
     SingleLinkList<Contact> contactList = new SingleLinkList<>();
 
-    contactList.addToEnd(new Contact(121, "Иванов Иван Иванович", "+7987654321"));
-    contactList.addToEnd(new Contact(122, "Иванов Сергей Иванович", "+7987654322"));
-    contactList.addToEnd(new Contact(123, "Иванов Андрей Иванович", "+7987654323"));
-    contactList.addToEnd(new Contact(124, "Иванов Тимофей Иванович", "+7987654324"));
-    contactList.addToEnd(new Contact(125, "Иванов Александр Иванович", "+7987654325"));
+    contactList.addToEnd(new Contact(1, "Иванов Иван Иванович", "+79053011200"));
+    contactList.addToEnd(new Contact(2, "Иванов Денис Иванович", "+79052530255"));
+    contactList.addToEnd(new Contact(3, "Иванов Дмитрий Петрович", "+79054212200"));
+    contactList.addToEnd(new Contact(4, "Сидоров Сидр Сидорович", "+79053024565"));
+    contactList.addToEnd(new Contact(5, "Петров Петр Петрович", "+7987654325"));
 
     for (Object contact : contactList) {
       System.out.println(contact);
     }
     contactList.reverse();
 
-    System.out.println("-------------------------------------");
+    System.out.println("__________________________________________________________");
 
     for (Object contact : contactList) {
       System.out.println(contact);
@@ -45,12 +45,7 @@ public class Homework02 {
     }
   }
 
-
-  /**
-   * Класс списка
-   *
-   * @param <T>
-   */
+  
   public static class SingleLinkList<T> implements Iterable {
 
     ListItem<T> head;
@@ -75,42 +70,33 @@ public class Homework02 {
       };
     }
 
-    /**
-     * Класс отдельного элемента
-     *
-     * @param <T>
-     */
+    
     private static class ListItem<T> {
 
       T data;
       ListItem<T> next;
     }
 
-    //Голова пустая
     public boolean isEmpty() {
       return head == null;
     }
 
-    //заполнение списка
     public void addToEnd(T item) {
 
-      //Выделение памяти для списка
       ListItem<T> newItem = new ListItem<>();
       newItem.data = item;
 
-      //Если, голова и хвост пустая
       if (isEmpty()) {
         head = newItem;
         tail = newItem;
-      } else { //Если, не пустая то передаём элементу адрес и ставим в хвост
+      } else {
         tail.next = newItem;
         tail = newItem;
       }
     }
 
-    //метод разворота списка
     public void reverse() {
-      if (!isEmpty() && head.next != null) {//Если голова не равна нулю
+      if (!isEmpty() && head.next != null) {
         tail = head;
         ListItem<T> current = head.next;
         head.next = null;
