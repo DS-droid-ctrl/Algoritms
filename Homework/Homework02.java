@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class Main {
+public class Homework02 {
 
   public static void main(String[] args) {
     SingleLinkList<Contact> contactList = new SingleLinkList<>();
